@@ -22,7 +22,9 @@
     "express"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.2.0"
+  },
   "devDependencies": {
     "ava": "^0.24.0",
     "babel-preset-env": "^1.6.1",

@@ -46,14 +46,18 @@ In Graphql land, you can authorize returned objects using Pundit in the `resolve
 
 ### Using with React (coming soon)
 
-You can also expose UI elements when the current user is authorized using the `When` component and the `PolicyProvider`.
+You can also expose UI elements when the current user is authorized using the `When`.
+It is recommended to wrap `When` with your own Component that automatically defines the user and policy for the resource.
 
 ```jsx
-<PolicyProvider user={currentUser}>
-  <When can='edit' resource={post}>
-    <EditButton />
-  </When>
-</PolicyProvider>
+<When
+  user={currentUser}
+  can='edit'
+  resource={post}
+  policy={policy}
+>
+  <EditButton />
+</When>
 ```
 
 ## License
