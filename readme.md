@@ -34,7 +34,7 @@ policy.destroy()
 ### Using with Express
 
 ```js
-
+TODO
 ```
 
 ### Using with Graphql
@@ -42,7 +42,7 @@ policy.destroy()
 In Graphql land, you can authorize returned objects using Pundit in the `resolve` callback of the query.
 
 ```js
-
+TODO
 ```
 
 ### Using with React
