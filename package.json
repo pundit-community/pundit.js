@@ -1,0 +1,28 @@
+{
+  "name": "pundit",
+  "description": "Minimal authorization through a plain old JavaScript object",
+  "author": "John Otander",
+  "version": "0.1.0",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "ava -v"
+  },
+  "repository": "johnotander/pundit",
+  "keywords": [
+    "authorization",
+    "policy",
+    "action",
+    "pundit",
+    "react",
+    "graphql",
+    "express"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.24.0"
+  }
+}
