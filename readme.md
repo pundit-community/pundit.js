@@ -1,6 +1,7 @@
 # pundit [![Build Status](https://secure.travis-ci.org/johnotander/pundit.svg?branch=master)](https://travis-ci.org/johnotander/pundit) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 Minimal authorization through a plain old JavaScript object, ported to JS from the [Ruby gem](https://github.com/varvet/pundit).
+Fits nicely into any app/framework including Express, Micro, React, Vue, Graphql, etc.
 
 ## Installation
 
@@ -44,9 +45,9 @@ In Graphql land, you can authorize returned objects using Pundit in the `resolve
 
 ```
 
-### Using with React (coming soon)
+### Using with React
 
-You can also expose UI elements when the current user is authorized using the `When`.
+You can also expose UI elements when the current user is authorized using the `When` component.
 It is recommended to wrap `When` with your own Component that automatically defines the user and policy for the resource.
 
 ```jsx
