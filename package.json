@@ -11,7 +11,7 @@
     "test": "ava -v",
     "prepare": "babel src -d dist"
   },
-  "repository": "c8r/pundit",
+  "repository": "johnotander/pundit",
   "keywords": [
     "authorization",
     "policy",
