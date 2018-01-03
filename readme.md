@@ -17,10 +17,10 @@ Actions typically map to routes in your application.
 A policy accepts a user, often the current user of your session, and the resource you wish to authorize against.
 
 ```javascript
-var pundit = require('pundit')
+const pundit = require('pundit')
 
 const PostPolicy = pundit({
-  edit: (user, record) => user.id === record.is,
+  edit: (user, record) => user.id === record.id,
   destroy: (user) => user.isAdmin()
 })
 
