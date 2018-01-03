@@ -41,7 +41,7 @@ test('When shows children when authorized', t => {
   t.snapshot(result)
 })
 
-test('When hides children when authorized', t => {
+test('When hides children when unauthorized', t => {
   const result = renderToString(
     <When
       user={{}}
