@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const TestPolicy = require('./')({
+const TestPolicy = require('./src')({
   edit: (user, record) => record.userId === user.id,
   show: true,
   destroy: false

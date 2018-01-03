@@ -2,15 +2,16 @@
   "name": "pundit",
   "description": "Minimal authorization through a plain old JavaScript object",
   "author": "John Otander",
-  "version": "0.1.0",
-  "main": "index.js",
+  "version": "0.0.1",
+  "main": "dist/index.js",
   "files": [
-    "index.js"
+    "dist"
   ],
   "scripts": {
-    "test": "ava -v"
+    "test": "ava -v",
+    "prepare": "babel src -d dist"
   },
-  "repository": "johnotander/pundit",
+  "repository": "c8r/pundit",
   "keywords": [
     "authorization",
     "policy",
@@ -23,6 +24,17 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.24.0"
+    "ava": "^0.24.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "react-dom": "^16.2.0"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
