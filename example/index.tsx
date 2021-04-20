@@ -1,8 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { PunditProvider, When } from '../react';
-import { Policy } from '../.';
+import { Policy, PunditProvider, When } from '../.';
 
 const user = {};
 const record = {};
