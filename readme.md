@@ -61,11 +61,7 @@ You can use determine what is shown based on what a user is authorized to see us
 In order to avoid passing user/policy/resource props to every usage of the `When` component you can use the `PunditProvider`.
 
 ```jsx
-<PunditProvider
-  user={user}
-  policy={postPolicy}
-  record={postRecord}
->
+<PunditProvider user={user} policy={postPolicy} record={postRecord}>
   <When can="view">
     <Link />
   </When>
@@ -79,6 +75,37 @@ In order to avoid passing user/policy/resource props to every usage of the `When
     <DeleteButton />
   </When>
 </PunditProvider>
+```
+
+## TODO
+
+- Improve typing for policy class
+  - Can expose an API/types where users manually construct (if ergonomic)
+  - Return new dynamic type based on actions given
+  - Can be used by the When/PunditProvider
+
+WIPS (thanks to Cedric)
+
+- https://www.typescriptlang.org/docs/handbook/2/keyof-types.html
+
+```js
+interface Policy<TPermission> {
+  (user: any, record: any): Map<TPermission, () => boolean>
+}
+
+const example = {
+  edit: true,
+  delete: false
+}
+
+type Action = keyof typeof example
+
+const g : Policy<Action> = {}
+
+New
+11:44
+Type '{}' is not assignable to type 'Policy<"edit" | "delete">'.
+  Type '{}' provides no match for the signature '(user: any, record: any): Map<"edit" | "delete", () => boolean>'.
 ```
 
 ## License
