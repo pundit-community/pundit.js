@@ -37,17 +37,15 @@ Actions typically map to permissions or routes in your application.
 A policy accepts a user, often the current user of your session, and the resource you wish to authorize against.
 
 ```javascript
-import pundit from 'pundit';
+import { Policy } from 'pundit';
 
-const PostPolicy = pundit({
-  edit: (user, record) => user.id === record.userId,
-  destroy: (user) => user.isAdmin(),
-});
+const postPolicy = new Policy(user, postRecord);
 
-const policy = new PostPolicy(user, record);
+postPolicy.add('edit', (user, record) => user.id === record.userId);
+postPolicy.add('destroy', (user) => user.isAdmin());
 
-policy.edit();
-policy.destroy();
+postPolicy.can('edit');
+postPolicy.can('destroy');
 ```
 
 ### Using with React
@@ -55,7 +53,7 @@ policy.destroy();
 You can use determine what is shown based on what a user is authorized to see using the `When` component.
 
 ```jsx
-<When can="edit" user={currentUser} policy={somePolicy} resource={someResource}>
+<When can="edit" user={user} policy={postPolicy} record={postRecord}>
   <EditButton />
 </When>
 ```
@@ -64,9 +62,9 @@ In order to avoid passing user/policy/resource props to every usage of the `When
 
 ```jsx
 <PunditProvider
-  user={currentUser}
-  policy={componentPolicy}
-  resource={someComponent}
+  user={user}
+  policy={postPolicy}
+  record={postRecord}
 >
   <When can="view">
     <Link />

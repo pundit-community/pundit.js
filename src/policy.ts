@@ -1,5 +1,5 @@
 interface ActionFunction {
-  (user: any, record: any): boolean
+  (user: any, record: any): boolean;
 }
 
 export class Policy {
