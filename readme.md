@@ -52,7 +52,7 @@ policy.destroy();
 
 ### Using with React
 
-You can also expose UI elements when the current user is authorized using the `When` component.
+You can use determine what is shown based on what a user is authorized to see using the `When` component.
 
 ```jsx
 <When can="edit" user={currentUser} policy={somePolicy} resource={someResource}>
