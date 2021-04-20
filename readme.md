@@ -1,64 +1,86 @@
-# pundit [![Build Status](https://secure.travis-ci.org/johnotander/pundit.svg?branch=master)](https://travis-ci.org/johnotander/pundit) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+# pundit
 
-Minimal authorization through a plain old JavaScript object, ported to JS from the [Ruby gem](https://github.com/varvet/pundit).
-Fits nicely into any app/framework including Express, Micro, React, Vue, Graphql, etc.
+Minimal and tiny authorization library that uses a plain old JavaScript object (POJO).
+
+- No dependencies
+- Written in TypeScript
+- Small bundle size
+- React/Preact support
+
+> Ported/adapted from the [`pundit` gem](https://github.com/varvet/pundit).
+
+## Introduction
+
+Similarly to the pundit gem's simple PORO (plain old Ruby object) architecture, this library maintains a small,
+user/record interface that is designed to be easy to use, flexible for evolving needs, and simple to test.
+Authorization is an important part of applications, and is often overly coupled with business logic.
+
+With pundit, we attempt to address some of that coupling by wrapping authorization logic and providing components
+to keep your logic concise and readable where it's used.
 
 ## Installation
 
 ```bash
 npm install --save pundit
+# yarn add pundit
 ```
 
 ## Usage
 
-In order to use Pundit, you can initialize a policy by passing an object of functions.
-These functions are called actions.
-Actions typically map to routes in your application.
+In order to use Pundit, you can initialize a policy by passing an object of functions, called actions.
+Actions typically map to permissions or routes in your application.
+
+**Client-side permissions should not replace a proper authorization system in your backend.**
+
+### Creating a policy
 
 A policy accepts a user, often the current user of your session, and the resource you wish to authorize against.
 
 ```javascript
-const pundit = require('pundit')
+import pundit from 'pundit';
 
 const PostPolicy = pundit({
-  edit: (user, record) => user.id === record.id,
-  destroy: (user) => user.isAdmin()
-})
+  edit: (user, record) => user.id === record.userId,
+  destroy: (user) => user.isAdmin(),
+});
 
-const policy = new PostPolicy(user, record)
+const policy = new PostPolicy(user, record);
 
-policy.edit()
-policy.destroy()
-```
-
-### Using with Express
-
-```js
-TODO
-```
-
-### Using with Graphql
-
-In Graphql land, you can authorize returned objects using Pundit in the `resolve` callback of the query.
-
-```js
-TODO
+policy.edit();
+policy.destroy();
 ```
 
 ### Using with React
 
 You can also expose UI elements when the current user is authorized using the `When` component.
-It is recommended to wrap `When` with your own Component that automatically defines the user and policy for the resource.
 
 ```jsx
-<When
-  user={currentUser}
-  can='edit'
-  resource={post}
-  policy={policy}
->
+<When can="edit" user={currentUser} policy={somePolicy} resource={someResource}>
   <EditButton />
 </When>
+```
+
+In order to avoid passing user/policy/resource props to every usage of the `When` component you can use the `PunditProvider`.
+
+```jsx
+<PunditProvider
+  user={currentUser}
+  policy={componentPolicy}
+  resource={someComponent}
+>
+  <When can="view">
+    <Link />
+  </When>
+  <When can="fork">
+    <ForkButton />
+  </When>
+  <When can="edit">
+    <EditButton />
+  </When>
+  <When can="destroy">
+    <DeleteButton />
+  </When>
+</PunditProvider>
 ```
 
 ## License
@@ -73,8 +95,6 @@ MIT
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-Crafted with <3 by John Otander ([@4lpine](https://twitter.com/4lpine)).
+---
 
-***
-
-> This package was initially generated with [yeoman](http://yeoman.io) and the [p generator](https://github.com/johnotander/generator-p.git).
+> Built by [johno](https://johno.com) ([@4lpine](https://twitter.com/4lpine)).
