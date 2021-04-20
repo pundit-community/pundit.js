@@ -1,44 +1,58 @@
 {
   "name": "pundit",
-  "description": "Minimal authorization through a plain old JavaScript object",
   "author": "John Otander",
-  "version": "0.0.2",
-  "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "test": "ava -v",
-    "prepare": "babel src -d dist"
-  },
-  "repository": "johnotander/pundit",
-  "keywords": [
-    "authorization",
-    "policy",
-    "action",
-    "pundit",
-    "react",
-    "graphql",
-    "express"
-  ],
+  "version": "0.1.0",
   "license": "MIT",
-  "dependencies": {
-    "react": "^16.2.0"
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": ["dist", "src"],
+  "engines": {
+    "node": ">=12"
   },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "module": "dist/pundit-new.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/pundit-new.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/pundit-new.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "ava": "^0.24.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-register": "^6.26.0",
-    "react-dom": "^16.2.0"
-  },
-  "ava": {
-    "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
+    "@size-limit/preset-small-lib": "^4.10.2",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "husky": "^6.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "size-limit": "^4.10.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
   }
 }
