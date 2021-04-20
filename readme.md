@@ -4,7 +4,7 @@ Minimal and tiny authorization library that uses a plain old JavaScript object (
 
 - No dependencies
 - Written in TypeScript
-- Small bundle size
+- Small bundle size (455B Gzipped)
 - React/Preact support
 
 > Ported/adapted from the [`pundit` gem](https://github.com/varvet/pundit).
