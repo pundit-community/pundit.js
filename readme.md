@@ -23,6 +23,7 @@ to keep your logic concise and readable where it's used.
 ```bash
 npm install --save pundit
 # yarn add pundit
+# pnpm add pundit
 ```
 
 ## Usage
@@ -42,7 +43,7 @@ import { Policy } from 'pundit';
 const postPolicy = new Policy(user, postRecord);
 
 postPolicy.add('edit', (user, record) => user.id === record.userId);
-postPolicy.add('destroy', (user) => user.isAdmin());
+postPolicy.add('destroy', user => user.isAdmin());
 
 postPolicy.can('edit');
 postPolicy.can('destroy');
@@ -57,6 +58,8 @@ You can use determine what is shown based on what a user is authorized to see us
   <EditButton />
 </When>
 ```
+
+(Note: Using `<When>` without a `<PunditProvider>` is not implemented yet).
 
 In order to avoid passing user/policy/resource props to every usage of the `When` component you can use the `PunditProvider`.
 
