@@ -1,13 +1,13 @@
-interface ActionFunction {
-  (user: any, record: any): boolean;
-}
+type ActionFunction = (user: unknown, record: unknown) => boolean;
 
-export class Policy {
-  user: any;
-  record: any;
+export default class Policy {
+  user: unknown;
+
+  record: unknown;
+
   actions: Map<string, ActionFunction>;
 
-  constructor(user: any, record: any) {
+  constructor(user: unknown, record: unknown) {
     this.user = user;
     this.record = record;
     this.actions = new Map();
@@ -15,15 +15,10 @@ export class Policy {
 
   can(actionName: string): boolean {
     const actionFn = this.actions.get(actionName);
-
-    if (!actionFn) {
-      return false;
-    }
-
-    return actionFn(this.user, this.record);
+    return actionFn !== undefined ? actionFn(this.user, this.record) : false;
   }
 
-  add(actionName: string, actionFn: ActionFunction) {
+  add(actionName: string, actionFn: ActionFunction): void {
     this.actions.set(actionName, actionFn);
   }
 }

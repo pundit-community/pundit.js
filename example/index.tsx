@@ -8,7 +8,7 @@ const policy = new Policy(user, record);
 policy.add('view', () => true);
 policy.add('edit', () => false);
 
-const App = (): React.ReactElement => {
+function App(): React.ReactElement {
   return (
     <PunditProvider policy={policy}>
       <h1>Abilities:</h1>
@@ -20,8 +20,10 @@ const App = (): React.ReactElement => {
       </When>
     </PunditProvider>
   );
-};
+}
 
 const container = document.getElementById('root');
-const root = createRoot(container!);
-root.render(<App />);
+if (container !== null) {
+  const root = createRoot(container);
+  root.render(<App />);
+}

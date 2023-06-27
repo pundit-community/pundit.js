@@ -1,6 +1,7 @@
 # pundit
 
-Minimal and tiny authorization library that uses a plain old JavaScript object (POJO).
+Minimal and tiny authorization library that uses a plain old JavaScript object
+(POJO).
 
 - No dependencies
 - Written in TypeScript
@@ -11,12 +12,15 @@ Minimal and tiny authorization library that uses a plain old JavaScript object (
 
 ## Introduction
 
-Similarly to the pundit gem's simple PORO (plain old Ruby object) architecture, this library maintains a small,
-user/record interface that is designed to be easy to use, flexible for evolving needs, and simple to test.
-Authorization is an important part of applications, and is often overly coupled with business logic.
+Similarly to the pundit gem's simple PORO (plain old Ruby object) architecture,
+this library maintains a small, user/record interface that is designed to be
+easy to use, flexible for evolving needs, and simple to test. Authorization is
+an important part of applications, and is often overly coupled with business
+logic.
 
-With pundit, we attempt to address some of that coupling by wrapping authorization logic and providing components
-to keep your logic concise and readable where it's used.
+With pundit, we attempt to address some of that coupling by wrapping
+authorization logic and providing components to keep your logic concise and
+readable where it's used.
 
 ## Installation
 
@@ -28,14 +32,17 @@ npm install --save pundit
 
 ## Usage
 
-In order to use Pundit, you can initialize a policy by passing an object of functions, called actions.
-Actions typically map to permissions or routes in your application.
+In order to use Pundit, you can initialize a policy by passing an object of
+functions, called actions. Actions typically map to permissions or routes in
+your application.
 
-**Client-side permissions should not replace a proper authorization system in your backend.**
+**Client-side permissions should not replace a proper authorization system in
+your backend.**
 
 ### Creating a policy
 
-A policy accepts a user, often the current user of your session, and the resource you wish to authorize against.
+A policy accepts a user, often the current user of your session, and the
+resource you wish to authorize against.
 
 ```javascript
 import { Policy } from 'pundit';
@@ -43,7 +50,7 @@ import { Policy } from 'pundit';
 const postPolicy = new Policy(user, postRecord);
 
 postPolicy.add('edit', (user, record) => user.id === record.userId);
-postPolicy.add('destroy', user => user.isAdmin());
+postPolicy.add('destroy', (user) => user.isAdmin());
 
 postPolicy.can('edit');
 postPolicy.can('destroy');
@@ -51,7 +58,8 @@ postPolicy.can('destroy');
 
 ### Using with React
 
-You can use determine what is shown based on what a user is authorized to see using the `When` component.
+You can use determine what is shown based on what a user is authorized to see
+using the `When` component.
 
 ```jsx
 <When can="edit" user={user} policy={postPolicy} record={postRecord}>
@@ -61,7 +69,8 @@ You can use determine what is shown based on what a user is authorized to see us
 
 (Note: Using `<When>` without a `<PunditProvider>` is not implemented yet).
 
-In order to avoid passing user/policy/resource props to every usage of the `When` component you can use the `PunditProvider`.
+In order to avoid passing user/policy/resource props to every usage of the
+`When` component you can use the `PunditProvider`.
 
 ```jsx
 <PunditProvider user={user} policy={postPolicy} record={postRecord}>
@@ -118,10 +127,10 @@ MIT
 ## Contributing
 
 1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+1. Create your feature branch (`git checkout -b my-new-feature`)
+1. Commit your changes (`git commit -am 'Add some feature'`)
+1. Push to the branch (`git push origin my-new-feature`)
+1. Create new Pull Request
 
 ---
 

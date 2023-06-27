@@ -30,6 +30,15 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Remark
+        run: pnpm remark
+
+      - name: Prettier
+        run: pnpm prettier
+
+      - name: Types
+        run: pnpm types
+
       - name: Test
         run: pnpm coverage
 

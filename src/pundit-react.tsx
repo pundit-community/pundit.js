@@ -1,5 +1,5 @@
-import React, { JSX, ReactElement } from 'react';
-import { Policy } from './policy';
+import React, { JSX, ReactElement, useMemo } from 'react';
+import Policy from './policy';
 
 const PunditContext = React.createContext({ policy: new Policy(null, null) });
 
@@ -18,19 +18,18 @@ export const usePundit = (): { policy: Policy } => {
   return value;
 };
 
-export const PunditProvider = ({
+export function PunditProvider({
   policy,
   children,
-}: PunditContextProps): ReactElement => {
+}: PunditContextProps): ReactElement {
+  const value = useMemo(() => ({ policy }), [policy]);
   return (
-    <PunditContext.Provider value={{ policy }}>
-      {children}
-    </PunditContext.Provider>
+    <PunditContext.Provider value={value}>{children}</PunditContext.Provider>
   );
-};
+}
 
-export const When = ({ can, children }: WhenProps): JSX.Element | null => {
+export function When({ can, children }: WhenProps): JSX.Element | null {
   const { policy } = usePundit();
   const canPerformAction = policy?.can(can);
   return canPerformAction ? children : null;
-};
+}

@@ -1,2 +1,4 @@
-export { Policy } from './policy';
-export { PunditProvider, When, usePundit } from './react';
+import Policy from './policy';
+
+export { Policy };
+export { PunditProvider, When, usePundit } from './pundit-react';
