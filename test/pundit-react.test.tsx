@@ -1,8 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { Policy } from '../src/policy';
-import { PunditProvider, When } from '../src/react';
+import Policy from '../src/policy';
+import { PunditProvider, When } from '../src/pundit-react';
 
 describe('<PunditProvider />', () => {
   const user = {};
@@ -15,7 +14,7 @@ describe('<PunditProvider />', () => {
     render(
       <PunditProvider policy={policy}>
         <When can="view">
-          <button>View</button>
+          <button type="button">View</button>
         </When>
       </PunditProvider>
     );
@@ -26,7 +25,7 @@ describe('<PunditProvider />', () => {
     render(
       <PunditProvider policy={policy}>
         <When can="edit">
-          <button>Edit</button>
+          <button type="button">Edit</button>
         </When>
       </PunditProvider>
     );
@@ -37,10 +36,10 @@ describe('<PunditProvider />', () => {
     render(
       <PunditProvider policy={policy}>
         <When can="view">
-          <button>View</button>
+          <button type="button">View</button>
         </When>
         <When can="edit">
-          <button>Edit</button>
+          <button type="button">Edit</button>
         </When>
       </PunditProvider>
     );
@@ -53,9 +52,9 @@ describe('<PunditProvider />', () => {
       <PunditProvider policy={policy}>
         <When can="view">
           <>
-            <button>View</button>
+            <button type="button">View</button>
             <When can="edit">
-              <button>Edit</button>
+              <button type="button">Edit</button>
             </When>
           </>
         </When>
@@ -69,10 +68,10 @@ describe('<PunditProvider />', () => {
     render(
       <>
         <PunditProvider policy={policy}>
-          <></>
+          <div />
         </PunditProvider>
         <When can="view">
-          <button>View</button>
+          <button type="button">View</button>
         </When>
       </>
     );
