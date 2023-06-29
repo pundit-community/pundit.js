@@ -1,7 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Policy from '../src/policy';
-import { PunditProvider, When } from '../src/pundit-react';
+import Policy from '../../src/policy';
+import { PunditProvider } from '../../src/react/pundit-provider';
+import When from '../../src/react/when';
 
 describe('<PunditProvider />', () => {
   const user = {};

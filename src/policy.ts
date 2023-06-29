@@ -21,4 +21,12 @@ export default class Policy {
   add(actionName: string, actionFn: ActionFunction): void {
     this.actions.set(actionName, actionFn);
   }
+
+  copy(user: unknown, record: unknown): Policy {
+    const newPolicy = new Policy(user, record);
+    this.actions.forEach((actionFunction, actionName) => {
+      newPolicy.add(actionName, actionFunction);
+    });
+    return newPolicy;
+  }
 }
