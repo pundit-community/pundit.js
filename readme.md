@@ -67,8 +67,6 @@ using the `When` component.
 </When>
 ```
 
-(Note: Using `<When>` without a `<PunditProvider>` is not implemented yet).
-
 In order to avoid passing user/policy/resource props to every usage of the
 `When` component you can use the `PunditProvider`.
 

@@ -1,4 +1,6 @@
 import Policy from './policy';
+import When from './react/when';
 
 export { Policy };
-export { PunditProvider, When, usePundit } from './pundit-react';
+export { PunditProvider, usePundit } from './react/pundit-provider';
+export { When };
