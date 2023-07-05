@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { createRoot } from 'react-dom/client';
-import { Policy, PunditProvider, When } from '../src/index';
+import * as React from 'react'
+import { createRoot } from 'react-dom/client'
+import { Policy, PunditProvider, When } from '../src/index'
 
-const user = {};
-const record = {};
-const policy = new Policy(user, record);
-policy.add('view', () => true);
-policy.add('edit', () => false);
+const user = {}
+const record = {}
+const policy = new Policy(user, record)
+policy.add('view', () => true)
+policy.add('edit', () => false)
 
 function App(): React.ReactElement {
   return (
@@ -19,11 +19,11 @@ function App(): React.ReactElement {
         <span>edit</span>
       </When>
     </PunditProvider>
-  );
+  )
 }
 
-const container = document.getElementById('root');
+const container = document.getElementById('root')
 if (container !== null) {
-  const root = createRoot(container);
-  root.render(<App />);
+  const root = createRoot(container)
+  root.render(<App />)
 }

@@ -45,15 +45,15 @@ A policy accepts a user, often the current user of your session, and the
 resource you wish to authorize against.
 
 ```javascript
-import { Policy } from 'pundit';
+import { Policy } from 'pundit'
 
-const postPolicy = new Policy(user, postRecord);
+const postPolicy = new Policy(user, postRecord)
 
-postPolicy.add('edit', (user, record) => user.id === record.userId);
-postPolicy.add('destroy', (user) => user.isAdmin());
+postPolicy.add('edit', (user, record) => user.id === record.userId)
+postPolicy.add('destroy', (user) => user.isAdmin())
 
-postPolicy.can('edit');
-postPolicy.can('destroy');
+postPolicy.can('edit')
+postPolicy.can('destroy')
 ```
 
 ### Using with React
