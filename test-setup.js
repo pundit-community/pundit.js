@@ -1,1 +1,1 @@
-import 'vitest-dom/extend-expect';
+import 'vitest-dom/extend-expect'
