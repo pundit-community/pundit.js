@@ -13,6 +13,6 @@
     "vite.config.js",
     "src/**/*",
     "test/**/*",
-    "example/**/*"
+    "examples/**/*"
   ]
 }
