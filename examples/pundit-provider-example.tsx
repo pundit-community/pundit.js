@@ -13,17 +13,6 @@ export default function PunditProviderExample(): ReactElement {
   )
   policy.add('destroy', (user: AuthorisableUser) => user.isAdmin)
 
-  // Todo: remove duplication after allowing user and record params to be passed
-  // to <PunditProvider /> to override those passed in via the policy param.
-  const policy2 = new Policy(admin, post)
-  policy2.add('view', () => true)
-  policy2.add(
-    'publish',
-    (user: AuthorisableUser, record: AuthorisablePost) =>
-      user.id === record.userId
-  )
-  policy2.add('destroy', (user: AuthorisableUser) => user.isAdmin)
-
   return (
     <div>
       <h2>Pundit Provider Example</h2>
@@ -41,7 +30,7 @@ export default function PunditProviderExample(): ReactElement {
           </When>
         </ul>
       </PunditProvider>
-      <PunditProvider policy={policy2}>
+      <PunditProvider policy={policy} user={admin}>
         <h3>Admin Abilities:</h3>
         <ul>
           <When can="view">

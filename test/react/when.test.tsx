@@ -40,11 +40,12 @@ describe('<When />', () => {
   })
 
   describe('user parameter', () => {
-    const user = {}
+    type AuthorisableUser = { isReader: boolean; isEditor: boolean }
+    const user: AuthorisableUser = { isReader: true, isEditor: false }
     const record = {}
     const policy = new Policy(null, record)
-    policy.add('view', () => true)
-    policy.add('edit', () => false)
+    policy.add('view', (userParam: AuthorisableUser) => userParam.isReader)
+    policy.add('edit', (userParam: AuthorisableUser) => userParam.isEditor)
 
     it('displays <When /> child when action is permitted using "user" param', () => {
       render(
@@ -84,11 +85,18 @@ describe('<When />', () => {
   })
 
   describe('record parameter', () => {
+    type AuthorisableRecord = { published: boolean }
     const user = {}
-    const record = {}
+    const record: AuthorisableRecord = { published: true }
     const policy = new Policy(user, null)
-    policy.add('view', () => true)
-    policy.add('edit', () => false)
+    policy.add(
+      'view',
+      (_userParam, recordParam: AuthorisableRecord) => recordParam.published
+    )
+    policy.add(
+      'edit',
+      (_userParam, recordParam: AuthorisableRecord) => !recordParam.published
+    )
 
     it('displays <When /> child when action is permitted using "record" param', () => {
       render(
