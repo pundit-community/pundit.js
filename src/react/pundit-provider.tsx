@@ -3,9 +3,11 @@ import Policy from '../policy'
 
 const PunditContext = React.createContext({ policy: new Policy(null, null) })
 
-interface PunditContextProps {
-  children: JSX.Element | JSX.Element[] | null
+interface PunditProviderProps {
   policy: Policy
+  user?: unknown
+  record?: unknown
+  children: JSX.Element | JSX.Element[] | null
 }
 
 export const usePundit = (): { policy: Policy } => {
@@ -15,10 +17,20 @@ export const usePundit = (): { policy: Policy } => {
 
 export function PunditProvider({
   policy,
+  user,
+  record,
   children,
-}: PunditContextProps): ReactElement {
-  const value = useMemo(() => ({ policy }), [policy])
+}: PunditProviderProps): ReactElement {
+  const value = useMemo(
+    () => ({ policy: policy.copy(user, record) }),
+    [policy, user, record]
+  )
   return (
     <PunditContext.Provider value={value}>{children}</PunditContext.Provider>
   )
+}
+
+PunditProvider.defaultProps = {
+  user: undefined,
+  record: undefined,
 }

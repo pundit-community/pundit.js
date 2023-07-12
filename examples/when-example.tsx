@@ -30,13 +30,13 @@ export default function WhenExample(): ReactElement {
       </ul>
       <h3>Admin Abilities:</h3>
       <ul>
-        <When can="view" policy={policy} user={admin} record={post}>
+        <When can="view" policy={policy} user={admin}>
           <li>View</li>
         </When>
-        <When can="publish" policy={policy} user={admin} record={post}>
+        <When can="publish" policy={policy} user={admin}>
           <li>Publish</li>
         </When>
-        <When can="destroy" policy={policy} user={admin} record={post}>
+        <When can="destroy" policy={policy} user={admin}>
           <li>Destroy</li>
         </When>
       </ul>
