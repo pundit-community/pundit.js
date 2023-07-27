@@ -1,24 +1,24 @@
-# pundit
+# Pundit.js
 
 Minimal and tiny authorization library that uses a plain old JavaScript object
 (POJO).
 
 - No dependencies
 - Written in TypeScript
-- Small bundle size (455B Gzipped)
+- Small bundle size
 - React/Preact support
 
-> Ported/adapted from the [`pundit` gem](https://github.com/varvet/pundit).
+Adapted from the [Pundit Ruby gem](https://github.com/varvet/pundit).
 
 ## Introduction
 
-Similarly to the pundit gem's simple PORO (plain old Ruby object) architecture,
+Similar to the Pundit gem's simple PORO (plain old Ruby object) architecture,
 this library maintains a small, user/record interface that is designed to be
 easy to use, flexible for evolving needs, and simple to test. Authorization is
 an important part of applications, and is often overly coupled with business
 logic.
 
-With pundit, we attempt to address some of that coupling by wrapping
+With Pundit.js, we attempt to address some of that coupling by wrapping
 authorization logic and providing components to keep your logic concise and
 readable where it's used.
 
@@ -32,7 +32,7 @@ npm install --save pundit
 
 ## Usage
 
-In order to use Pundit, you can initialize a policy by passing an object of
+In order to use Pundit.js, you can initialize a policy by passing an object of
 functions, called actions. Actions typically map to permissions or routes in
 your application.
 
