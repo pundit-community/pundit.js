@@ -29,4 +29,16 @@ export default class Policy {
     })
     return newPolicy
   }
+
+  actionsFromClass(): void {
+    const actionNames = Object.getOwnPropertyNames(
+      this.constructor.prototype
+    ).filter((methodName) => methodName !== 'constructor')
+    this.actions = new Map(
+      actionNames.map((actionName) => [
+        actionName,
+        (): boolean => this[actionName](this.user, this.record),
+      ])
+    )
+  }
 }

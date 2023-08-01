@@ -74,3 +74,70 @@ describe('copy function', () => {
     expect(copiedPolicy.actions.get(actionName)).toEqual(actionFunction)
   })
 })
+
+describe('actionsFromClass function', () => {
+  type AuthorisableUser = { isAdmin: boolean }
+  type AuthorisableRecord = { draft: boolean }
+
+  class PostPolicy extends Policy {
+    user: AuthorisableUser
+
+    record: AuthorisableRecord
+
+    constructor(
+      user: AuthorisableUser | undefined,
+      record: AuthorisableRecord | undefined
+    ) {
+      super(user, record)
+      this.actionsFromClass.apply(this)
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    view(): boolean {
+      return true
+    }
+
+    edit(): boolean {
+      if (this.user?.isAdmin || this.record?.draft) {
+        return true
+      }
+      return false
+    }
+  }
+
+  it('does not turn the policy class constructor into an action', () => {
+    const postPolicy = new PostPolicy(undefined, undefined)
+    expect(postPolicy.actions.has('constructor')).toBe(false)
+  })
+
+  it('copies the correct number of actions into the actions map', () => {
+    const postPolicy = new PostPolicy(undefined, undefined)
+    expect(postPolicy.actions.size).toEqual(2)
+  })
+
+  it('copies the action names defined in the class into the actions map', () => {
+    const postPolicy = new PostPolicy(undefined, undefined)
+    expect(postPolicy.actions.has('view')).toBe(true)
+    expect(postPolicy.actions.has('edit')).toBe(true)
+  })
+
+  it('copies the action methods defined in the class into the actions map', () => {
+    const postPolicy = new PostPolicy(undefined, undefined)
+    expect(postPolicy.can('view')).toBe(true)
+    expect(postPolicy.can('edit')).toBe(false)
+  })
+
+  it('copies the user property of the class instance into the actions map', () => {
+    const admin = { isAdmin: true }
+    expect(new PostPolicy(admin, undefined).can('edit')).toBe(true)
+    const nonAdmin = { isAdmin: false }
+    expect(new PostPolicy(nonAdmin, undefined).can('edit')).toBe(false)
+  })
+
+  it('copies the record property of the class instance into the actions map', () => {
+    const draftPost = { draft: true }
+    expect(new PostPolicy(undefined, draftPost).can('edit')).toBe(true)
+    const publishedPost = { draft: false }
+    expect(new PostPolicy(undefined, publishedPost).can('edit')).toBe(false)
+  })
+})
