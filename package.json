@@ -1,6 +1,6 @@
 {
   "name": "pundit",
-  "author": "John Otander",
+  "author": "John Otander, Chris Alley",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",

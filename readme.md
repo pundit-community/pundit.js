@@ -185,4 +185,5 @@ MIT
 
 ---
 
-> Built by [johno](https://johno.com) ([@4lpine](https://twitter.com/4lpine)).
+> Built by [johno](https://johno.com) ([@4lpine](https://twitter.com/4lpine))
+> and [Chris Alley](https://github.com/chrisalley).
