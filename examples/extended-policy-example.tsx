@@ -10,11 +10,7 @@ class PostPolicy extends Policy {
 
   constructor(user: AuthorisableUser, record: AuthorisablePost) {
     super(user, record)
-    this.actions = new Map([
-      ['view', (): boolean => this.view()],
-      ['publish', (): boolean => this.publish()],
-      ['destroy', (): boolean => this.destroy()],
-    ])
+    this.setup.apply(this)
   }
 
   // eslint-disable-next-line class-methods-use-this

@@ -1,6 +1,6 @@
 import Policy from '../src/policy'
 
-describe('can function', () => {
+describe('can method', () => {
   const policy = new Policy(null, null)
 
   it('returns true if the action is authorised', () => {
@@ -21,7 +21,7 @@ describe('can function', () => {
   })
 })
 
-describe('add function', () => {
+describe('add method', () => {
   const policy = new Policy(null, null)
 
   it('adds an action to an instance of the Policy class', () => {
@@ -41,7 +41,7 @@ describe('add function', () => {
   })
 })
 
-describe('copy function', () => {
+describe('copy method', () => {
   it('copies the user and record params when these are specified', () => {
     const originalPolicy = new Policy(undefined, undefined)
     const paramUser = { id: 1 }
@@ -75,7 +75,7 @@ describe('copy function', () => {
   })
 })
 
-describe('actionsFromClass function', () => {
+describe('setup method', () => {
   type AuthorisableUser = { isAdmin: boolean }
   type AuthorisableRecord = { draft: boolean }
 
@@ -89,7 +89,7 @@ describe('actionsFromClass function', () => {
       record: AuthorisableRecord | undefined
     ) {
       super(user, record)
-      this.actionsFromClass.apply(this)
+      this.setup.apply(this)
     }
 
     // eslint-disable-next-line class-methods-use-this
