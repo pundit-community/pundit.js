@@ -32,9 +32,9 @@ npm install --save pundit
 
 ## Usage
 
-In order to use Pundit.js, you can initialize a policy by passing an object of
-functions, called actions. Actions typically map to permissions or routes in
-your application.
+In order to use Pundit.js, you can initialize a policy by setting up an object
+of functions/methods called actions. Actions typically map to permissions or
+routes in your application.
 
 **Client-side permissions should not replace a proper authorization system in
 your backend.**
@@ -44,16 +44,69 @@ your backend.**
 A policy accepts a user, often the current user of your session, and the
 resource you wish to authorize against.
 
+Policies can be defined by extending the `Policy` class. Add a constructor that
+accepts the user and record objects as parameters, also calling
+`this.setup.apply(this)` to initialise the actions defined in the class.
+
 ```javascript
 import { Policy } from 'pundit'
 
-const postPolicy = new Policy(user, postRecord)
+export default class PostPolicy extends Policy {
+  constructor(user, record) {
+    super(user, record)
+    this.setup.apply(this)
+  }
+
+  edit() {
+    return this.user.id === this.record.userId
+  }
+
+  destroy() {
+    return this.user.isAdmin
+  }
+}
+```
+
+Actions are defined as methods belonging to the extended `Policy` class. Each
+action method should return true or false depending on whether the specified
+user/record combination is permitted for that action.
+
+You can then instantiate the class and use the `can` method to check if the
+action is authorised.
+
+```javascript
+import PostPolicy from 'src/policies/post.policy.js'
+
+const user = { id: 1, isAdmin: false }
+const post = { id: 11, userId: 1 }
+const postPolicy = new PostPolicy(user, post)
+
+postPolicy.can('edit') // Returns true
+postPolicy.can('destroy') // Returns false
+```
+
+Since the role of Pundit.js is to reuse authorisation logic, for real world use
+we recommend that you define policy classes in a centralised folder in
+your application such as `src/policies`. The policies can then be imported
+into each file that needs to check the authorisation rules for the resource
+type.
+
+Actions can also be added to an instantiated policy by using the `add` method
+which accepts a plain function with user and record parameters. The following
+is equivalent logic to defining policy actions by extending the `Policy` class:
+
+```javascript
+import { Policy } from 'pundit'
+
+const user = { id: 1, isAdmin: false }
+const post = { id: 11, userId: 1 }
+const postPolicy = new Policy(user, post)
 
 postPolicy.add('edit', (user, record) => user.id === record.userId)
-postPolicy.add('destroy', (user) => user.isAdmin())
+postPolicy.add('destroy', (user) => user.isAdmin)
 
-postPolicy.can('edit')
-postPolicy.can('destroy')
+postPolicy.can('edit') // Returns true
+postPolicy.can('destroy') // Returns false
 ```
 
 ### Using with React

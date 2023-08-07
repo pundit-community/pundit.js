@@ -1,11 +1,12 @@
 type ActionFunction = (user: unknown, record: unknown) => boolean
+type ActionMethod = () => boolean
 
 export default class Policy {
   user: unknown
 
   record: unknown
 
-  actions: Map<string, ActionFunction>
+  actions: Map<string, ActionFunction | ActionMethod>
 
   constructor(user: unknown, record: unknown) {
     this.user = user
@@ -30,14 +31,14 @@ export default class Policy {
     return newPolicy
   }
 
-  actionsFromClass(): void {
+  setup(): void {
     const actionNames = Object.getOwnPropertyNames(
       this.constructor.prototype
     ).filter((methodName) => methodName !== 'constructor')
     this.actions = new Map(
       actionNames.map((actionName) => [
         actionName,
-        (): boolean => this[actionName](this.user, this.record),
+        (): boolean => this[actionName](),
       ])
     )
   }
