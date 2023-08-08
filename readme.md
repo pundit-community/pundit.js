@@ -1,6 +1,6 @@
 # Pundit.js
 
-Minimal and tiny authorization library that uses a plain old JavaScript object
+Minimal and tiny authorisation library that uses a plain old JavaScript object
 (POJO).
 
 - No dependencies
@@ -14,12 +14,12 @@ Adapted from the [Pundit Ruby gem](https://github.com/varvet/pundit).
 
 Similar to the Pundit gem's simple PORO (plain old Ruby object) architecture,
 this library maintains a small, user/record interface that is designed to be
-easy to use, flexible for evolving needs, and simple to test. Authorization is
+easy to use, flexible for evolving needs, and simple to test. Authorisation is
 an important part of applications, and is often overly coupled with business
 logic.
 
 With Pundit.js, we attempt to address some of that coupling by wrapping
-authorization logic and providing components to keep your logic concise and
+authorisation logic and providing components to keep your logic concise and
 readable where it's used.
 
 ## Installation
@@ -32,17 +32,17 @@ npm install --save pundit
 
 ## Usage
 
-In order to use Pundit.js, you can initialize a policy by setting up an object
+In order to use Pundit.js, you can initialise a policy by setting up an object
 of functions/methods called actions. Actions typically map to permissions or
 routes in your application.
 
-**Client-side permissions should not replace a proper authorization system in
+**Client-side permissions should not replace a proper authorisation system in
 your backend.**
 
 ### Creating a policy
 
 A policy accepts a user, often the current user of your session, and the
-resource you wish to authorize against.
+resource you wish to authorise against.
 
 Policies can be defined by extending the `Policy` class. Add a constructor that
 accepts the user and record objects as parameters, also calling
@@ -111,7 +111,7 @@ postPolicy.can('destroy') // Returns false
 
 ### Using with React
 
-You can use determine what is shown based on what a user is authorized to see
+You can use determine what is shown based on what a user is authorised to see
 using the `When` component.
 
 ```jsx
