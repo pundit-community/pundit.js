@@ -140,6 +140,27 @@ In order to avoid passing user/policy/resource props to every usage of the
 </PunditProvider>
 ```
 
+### Testing
+
+Policies can be unit tested, for example with Jest/Vitest:
+
+```javascript
+describe('post policy, edit action', () => {
+  const user = { id: 1 }
+
+  it('grants access if post is authored by user', () => {
+    const post = { userId: user.id }
+    expect(new PostPolicy(user, post).can('edit')).toBe(true)
+  })
+
+  it('denies access if post is not authored by user', () => {
+    const differentUser = { id: 2 }
+    const post = { userId: differentUser.id }
+    expect(new PostPolicy(user, post).can('edit')).toBe(false)
+  })
+})
+```
+
 ## License
 
 MIT
