@@ -111,20 +111,29 @@ postPolicy.can('destroy') // Returns false
 
 ### Using with React
 
-You can use determine what is shown based on what a user is authorized to see
+You can determine what is shown based on what a user is authorised to see by
 using the `When` component.
 
 ```jsx
-<When can="edit" user={user} policy={postPolicy} record={postRecord}>
+<When can="edit" policy={postPolicy} user={user} record={post}>
   <EditButton />
 </When>
 ```
 
-In order to avoid passing user/policy/resource props to every usage of the
+The `user` and `record` attributes are not required if these passed into the
+policy's contructor when instantiating it. The following acts as a shorthand:
+
+```jsx
+<When can="edit" policy={new PostPolicy(user, post)}>
+  <EditButton />
+</When>
+```
+
+In order to avoid passing user/policy/record props to every usage of the
 `When` component you can use the `PunditProvider`.
 
 ```jsx
-<PunditProvider user={user} policy={postPolicy} record={postRecord}>
+<PunditProvider policy={postPolicy} user={user} record={post}>
   <When can="view">
     <Link />
   </When>
@@ -136,6 +145,25 @@ In order to avoid passing user/policy/resource props to every usage of the
   </When>
   <When can="destroy">
     <DeleteButton />
+  </When>
+</PunditProvider>
+```
+
+As with the `When` component, you can pass the `user` and `record` attributes
+via the policy's constructor with `PunditProvider`. You can also override these
+attributes for particular usages of `When` within the provider, for example to
+check if an alternative user or record is authorised.
+
+```jsx
+<PunditProvider policy={new PostPolicy(user, post)}>
+  <When can="view">
+    <Link>View Post</Link>
+  </When>
+  <When can="view" user={masqueradeUser}>
+    <Link>View Post Masquerading as {masqueradeUser.name}</Link>
+  </When>
+  <When can="view" record={nextPost}>
+    <Link>View Next Post</Link>
   </When>
 </PunditProvider>
 ```
