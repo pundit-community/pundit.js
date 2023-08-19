@@ -1,7 +1,7 @@
 {
-  "name": "pundit",
+  "name": "pundit-js",
   "author": "John Otander, Chris Alley",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "main": "dist/index.js",
   "source": "src/index.ts",
