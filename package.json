@@ -1,8 +1,24 @@
 {
   "name": "pundit",
-  "author": "John Otander, Chris Alley",
   "version": "0.2.0",
+  "description": "Minimal and tiny authorisation library that uses a plain old JavaScript object (POJO)",
+  "keywords": [
+    "authorisation",
+    "authorization",
+    "pundit",
+    "react"
+  ],
+  "homepage": "https://github.com/pundit-community/pundit.js",
   "license": "MIT",
+  "author": "Pundit.js Team",
+  "contributors": [
+    "John Otander",
+    "Chris Alley"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pundit-community/pundit.js"
+  },
   "main": "dist/index.js",
   "source": "src/index.ts",
   "files": [
