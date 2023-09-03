@@ -42,7 +42,7 @@ your backend.**
 ### Creating a policy
 
 A policy accepts a user, often the current user of your session, and the
-resource you wish to authorise against.
+resource you wish to authorise against, referred to as a record.
 
 Policies can be defined by extending the `Policy` class. Add a constructor that
 accepts the user and record objects as parameters, also calling
@@ -115,38 +115,54 @@ You can determine what is shown based on what a user is authorised to see by
 using the `When` component.
 
 ```jsx
-<When can="edit" policy={postPolicy} user={user} record={post}>
-  <EditButton />
-</When>
+import { When } from 'pundit'
+import PostPolicy from 'src/policies/post.policy.js'
+
+// ...
+
+return (
+  <When can="edit" policy={postPolicy} user={user} record={post}>
+    <EditButton />
+  </When>
+)
 ```
 
 The `user` and `record` attributes are not required if these passed into the
 policy's contructor when instantiating it. The following acts as a shorthand:
 
 ```jsx
-<When can="edit" policy={new PostPolicy(user, post)}>
-  <EditButton />
-</When>
+return (
+  <When can="edit" policy={new PostPolicy(user, post)}>
+    <EditButton />
+  </When>
+)
 ```
 
 In order to avoid passing user/policy/record props to every usage of the
 `When` component you can use the `PunditProvider`.
 
 ```jsx
-<PunditProvider policy={postPolicy} user={user} record={post}>
-  <When can="view">
-    <Link />
-  </When>
-  <When can="fork">
-    <ForkButton />
-  </When>
-  <When can="edit">
-    <EditButton />
-  </When>
-  <When can="destroy">
-    <DeleteButton />
-  </When>
-</PunditProvider>
+import { PunditProvider, When } from 'pundit'
+import PostPolicy from 'src/policies/post.policy.js'
+
+// ...
+
+return (
+  <PunditProvider policy={postPolicy} user={user} record={post}>
+    <When can="view">
+      <Link />
+    </When>
+    <When can="fork">
+      <ForkButton />
+    </When>
+    <When can="edit">
+      <EditButton />
+    </When>
+    <When can="destroy">
+      <DeleteButton />
+    </When>
+  </PunditProvider>
+)
 ```
 
 As with the `When` component, you can pass the `user` and `record` attributes
@@ -155,17 +171,19 @@ attributes for particular usages of `When` within the provider, for example to
 check if an alternative user or record is authorised.
 
 ```jsx
-<PunditProvider policy={new PostPolicy(user, post)}>
-  <When can="view">
-    <Link>View Post</Link>
-  </When>
-  <When can="view" user={masqueradeUser}>
-    <Link>View Post Masquerading as {masqueradeUser.name}</Link>
-  </When>
-  <When can="view" record={nextPost}>
-    <Link>View Next Post</Link>
-  </When>
-</PunditProvider>
+return (
+  <PunditProvider policy={new PostPolicy(user, post)}>
+    <When can="view">
+      <Link>View Post</Link>
+    </When>
+    <When can="view" user={masqueradeUser}>
+      <Link>View Post Masquerading as {masqueradeUser.name}</Link>
+    </When>
+    <When can="view" record={nextPost}>
+      <Link>View Next Post</Link>
+    </When>
+  </PunditProvider>
+)
 ```
 
 ### Testing
@@ -173,6 +191,8 @@ check if an alternative user or record is authorised.
 Policies can be unit tested, for example with Jest/Vitest:
 
 ```javascript
+import PostPolicy from 'src/policies/post.policy.js'
+
 describe('post policy, edit action', () => {
   const user = { id: 1 }
 
@@ -201,7 +221,7 @@ MIT
 1. Push to the branch (`git push origin my-new-feature`)
 1. Create new Pull Request
 
----
+## Authors
 
-> Built by [johno](https://johno.com) ([@4lpine](https://twitter.com/4lpine))
-> and [Chris Alley](https://github.com/chrisalley).
+Built by [johno](https://johno.com) ([@4lpine](https://twitter.com/4lpine)) and
+[Chris Alley](https://github.com/chrisalley).
