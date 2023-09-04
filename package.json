@@ -1,6 +1,6 @@
 {
   "name": "pundit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Minimal and tiny authorisation library that uses a plain old JavaScript object (POJO)",
   "keywords": [
     "authorisation",
