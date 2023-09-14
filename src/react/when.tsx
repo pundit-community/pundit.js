@@ -1,8 +1,9 @@
+import { ReactNode } from 'react'
 import Policy from '../policy'
 import { usePundit } from './pundit-provider'
 
 interface WhenProps {
-  children: JSX.Element | null
+  children: ReactNode | null
   can: string
   policy?: Policy
   user?: unknown
@@ -15,7 +16,7 @@ export default function When({
   policy,
   user,
   record,
-}: WhenProps): JSX.Element | null {
+}: WhenProps): ReactNode | null {
   const { policy: hookPolicy } = usePundit()
   const paramPolicy = policy?.copy(user, record)
   const canPerformAction = paramPolicy
