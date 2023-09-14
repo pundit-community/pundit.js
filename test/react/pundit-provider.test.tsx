@@ -53,12 +53,10 @@ describe('<PunditProvider />', () => {
       render(
         <PunditProvider policy={policy}>
           <When can="view">
-            <>
-              <button type="button">View</button>
-              <When can="edit">
-                <button type="button">Edit</button>
-              </When>
-            </>
+            <button type="button">View</button>
+            <When can="edit">
+              <button type="button">Edit</button>
+            </When>
           </When>
         </PunditProvider>
       )

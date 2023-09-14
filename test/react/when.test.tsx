@@ -20,6 +20,17 @@ describe('<When />', () => {
       expect(screen.queryByText('View')).toBeInTheDocument()
     })
 
+    it('authorises multiple children within a single <When /> element', () => {
+      render(
+        <When can="view" policy={policy}>
+          <button type="button">View 1</button>
+          <button type="button">View 2</button>
+        </When>
+      )
+      expect(screen.queryByText('View 1')).toBeInTheDocument()
+      expect(screen.queryByText('View 2')).toBeInTheDocument()
+    })
+
     it('does not display <When /> child when action is forbidden using "policy" param', () => {
       render(
         <When can="edit" policy={policy}>
