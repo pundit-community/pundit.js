@@ -1,4 +1,4 @@
-import React, { JSX, ReactElement, useMemo } from 'react'
+import React, { ReactNode, ReactElement, useMemo } from 'react'
 import Policy from '../policy'
 
 const PunditContext = React.createContext({ policy: new Policy(null, null) })
@@ -7,7 +7,7 @@ interface PunditProviderProps {
   policy: Policy
   user?: unknown
   record?: unknown
-  children: JSX.Element | JSX.Element[] | null
+  children: ReactNode | ReactNode[] | null
 }
 
 export const usePundit = (): { policy: Policy } => {
