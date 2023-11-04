@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "types": ["vitest/globals", "vitest-dom/extend-expect"]
+    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"]
   },
   "include": [
     "test-setup.js",
