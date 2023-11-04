@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { expect } from 'vitest'
 import Policy from '../../src/policy'
 import When from '../../src/react/when'
 
