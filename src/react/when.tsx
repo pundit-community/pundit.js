@@ -15,7 +15,7 @@ export default function When({
   can,
   policy,
   user,
-  record,
+  record
 }: WhenProps): ReactNode | ReactNode[] | null {
   const { policy: hookPolicy } = usePundit()
   const paramPolicy = policy?.copy(user, record)
@@ -28,5 +28,5 @@ export default function When({
 When.defaultProps = {
   policy: undefined,
   user: undefined,
-  record: undefined,
+  record: undefined
 }

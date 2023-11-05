@@ -38,7 +38,7 @@ export default class Policy {
     this.actions = new Map(
       actionNames.map((actionName) => [
         actionName,
-        (): boolean => this[actionName](),
+        (): boolean => this[actionName]()
       ])
     )
   }
