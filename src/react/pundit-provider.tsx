@@ -19,7 +19,7 @@ export function PunditProvider({
   policy,
   user,
   record,
-  children,
+  children
 }: PunditProviderProps): ReactElement {
   const value = useMemo(
     () => ({ policy: policy.copy(user, record) }),
@@ -32,5 +32,5 @@ export function PunditProvider({
 
 PunditProvider.defaultProps = {
   user: undefined,
-  record: undefined,
+  record: undefined
 }

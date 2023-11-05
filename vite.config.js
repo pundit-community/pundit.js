@@ -9,13 +9,13 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'pundit',
+      name: 'pundit'
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ['react'],
-    },
+      external: ['react']
+    }
   },
   test: {
     globals: true,
@@ -23,6 +23,6 @@ export default defineConfig({
     setupFiles: './test-setup.js',
     // you might want to disable it, if you don't have tests that rely on CSS
     // since parsing CSS is slow
-    css: false,
-  },
+    css: false
+  }
 })
