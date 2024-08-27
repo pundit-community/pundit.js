@@ -42,7 +42,9 @@
     "prettier:fix": "prettier --write .",
     "types": "tsc",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
   },
   "peerDependencies": {
     "react": ">=18"
@@ -68,6 +70,9 @@
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/types": "^19.0.3",
     "@size-limit/preset-small-lib": "^10.0.3",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
@@ -84,7 +89,7 @@
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.1",
-    "husky": "^8.0.3",
+    "husky": "^9.1.4",
     "jsdom": "^22.1.0",
     "prettier": "3.0.3",
     "react": "^18.2.0",
