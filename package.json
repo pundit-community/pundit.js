@@ -27,7 +27,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "scripts": {
     "build": "tsc && vite build",
@@ -47,7 +47,7 @@
     "commitlint": "commitlint --edit"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=20.17"
   },
   "husky": {
     "hooks": {
@@ -66,40 +66,40 @@
     }
   ],
   "devDependencies": {
-    "@babel/core": "^7.24.4",
-    "@babel/preset-env": "^7.24.4",
-    "@babel/preset-react": "^7.24.1",
-    "@babel/preset-typescript": "^7.24.1",
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@commitlint/types": "^19.0.3",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/types": "^19.5.0",
     "@size-limit/preset-small-lib": "^10.0.3",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.2",
-    "@types/react": "^18.2.74",
-    "@types/react-dom": "^18.2.24",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^14.3.1",
+    "@types/react": "^18.3.6",
+    "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^0.34.6",
     "@vitest/ui": "^0.34.7",
     "babel-preset-airbnb": "^5.0.0",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-react": "^7.34.1",
-    "husky": "^9.1.4",
+    "eslint-plugin-react": "^7.36.1",
+    "husky": "^9.1.6",
     "jsdom": "^25.0.0",
     "prettier": "3.3.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "remark-cli": "^12.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remark-cli": "^12.0.1",
     "remark-preset-lint-markdown-style-guide": "^5.1.3",
     "size-limit": "^10.0.3",
-    "typescript": "^5.4.4",
+    "typescript": "^5.6.2",
     "unified-prettier": "^2.0.1",
-    "vite": "^5.2.8",
+    "vite": "^5.4.6",
     "vitest": "^0.34.6"
   }
 }
