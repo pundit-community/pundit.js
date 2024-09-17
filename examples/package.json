@@ -8,14 +8,14 @@
     "build": "vite build"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/react": "^16.14.60",
+    "@types/react": "^16.14.61",
     "@types/react-dom": "^16.9.24",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^4.3.1",
     "typescript": "^3.9.10",
-    "vite": "^5.2.8"
+    "vite": "^5.4.6"
   }
 }
