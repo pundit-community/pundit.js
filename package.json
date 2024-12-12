@@ -99,7 +99,7 @@
     "size-limit": "^10.0.3",
     "typescript": "^5.7.2",
     "unified-prettier": "^2.0.1",
-    "vite": "^5.4.11",
+    "vite": "^6.0.3",
     "vitest": "^0.34.6"
   }
 }
