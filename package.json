@@ -20,11 +20,12 @@
     "type": "git",
     "url": "https://github.com/pundit-community/pundit.js"
   },
-  "main": "dist/index.js",
+  "exports": [
+    "./dist/pundit.js"
+  ],
   "source": "src/index.ts",
   "files": [
-    "dist",
-    "src"
+    "dist/pundit.js"
   ],
   "engines": {
     "node": ">=20"
