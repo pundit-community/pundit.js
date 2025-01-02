@@ -92,7 +92,6 @@ describe('setup method', () => {
       this.setup.apply(this)
     }
 
-    // eslint-disable-next-line class-methods-use-this
     view(): boolean {
       return true
     }
