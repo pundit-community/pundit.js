@@ -34,6 +34,11 @@ npm install --save pundit
 # pnpm add pundit
 ```
 
+## Documentation
+
+Visit https://pundit-community.github.io/pundit.js to view the full
+documentation.
+
 ## Usage
 
 In order to use Pundit.js, you can initialise a policy by setting up an object
