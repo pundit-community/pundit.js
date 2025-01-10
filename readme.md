@@ -1,5 +1,9 @@
 # Pundit.js
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pundit-community/pundit.js/blob/main/LICENSE)
+[![NPM](https://img.shields.io/npm/v/pundit.svg)](https://www.npmjs.com/package/pundit)
+[![CI](https://github.com/pundit-community/pundit.js/workflows/CI/badge.svg)](https://github.com/pundit-community/pundit.js/actions/workflows/ci.yml)
+
 Minimal and tiny authorisation library that uses a plain old JavaScript object
 (POJO).
 
