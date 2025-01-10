@@ -215,7 +215,7 @@ describe('post policy, edit action', () => {
 
 ## License
 
-MIT
+Pundit.js is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Contributing
 
