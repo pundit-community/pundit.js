@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install pnpm package manager
         uses: pnpm/action-setup@v4 # Extracts pnpm version from package.json packageManager field
