@@ -16,6 +16,7 @@
     "Chris Alley"
   ],
   "type": "module",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/pundit-community/pundit.js"
@@ -73,6 +74,7 @@
     "@commitlint/config-conventional": "^19.8.0",
     "@commitlint/types": "^19.8.0",
     "@eslint/js": "^9.23.0",
+    "@microsoft/api-extractor": "^7.55.1",
     "@size-limit/preset-small-lib": "^11.2.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -97,6 +99,7 @@
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.29.0",
     "unified-prettier": "^2.0.1",
+    "unplugin-dts": "1.0.0-beta.6",
     "vite": "^6.2.4",
     "vitest": "^3.1.1"
   }
