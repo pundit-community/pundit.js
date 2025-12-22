@@ -92,7 +92,6 @@ describe('setup method', () => {
       this.setup.apply(this)
     }
 
-     
     view(): boolean {
       return true
     }
