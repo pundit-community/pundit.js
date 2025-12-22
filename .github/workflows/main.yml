@@ -17,7 +17,7 @@ jobs:
       - name: Install pnpm package manager
         uses: pnpm/action-setup@v4
         with:
-          version: 9.10.0
+          version: 10.26.1
 
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v4
