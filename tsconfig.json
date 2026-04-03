@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "outDir": "./dist",
     "baseUrl": "./src",
     "jsx": "react",
