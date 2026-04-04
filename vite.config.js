@@ -7,7 +7,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [
     react(),
-    dts({ tsconfigPath: './tsconfig.build.json', bundleTypes: true })
+    dts({ tsconfigPath: './tsconfig.json', bundleTypes: true })
   ],
   build: {
     lib: {
@@ -15,7 +15,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'pundit'
     },
-    rollupOptions: {
+    rolldownOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
       external: ['react']

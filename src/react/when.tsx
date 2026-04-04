@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import Policy from '../policy'
 import { usePundit } from './pundit-provider'
 

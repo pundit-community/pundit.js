@@ -4,9 +4,8 @@ import { admin, author, post } from './example-data'
 import { AuthorisablePost, AuthorisableUser } from './types'
 
 class PostPolicy extends Policy {
-  user: AuthorisableUser
-
-  record: AuthorisablePost
+  declare user: AuthorisableUser
+  declare record: AuthorisablePost
 
   constructor(user: AuthorisableUser, record: AuthorisablePost) {
     super(user, record)

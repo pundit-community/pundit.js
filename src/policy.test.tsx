@@ -80,9 +80,8 @@ describe('setup method', () => {
   type AuthorisableRecord = { draft: boolean }
 
   class PostPolicy extends Policy {
-    user: AuthorisableUser
-
-    record: AuthorisableRecord
+    declare user: AuthorisableUser
+    declare record: AuthorisableRecord
 
     constructor(
       user: AuthorisableUser | undefined,

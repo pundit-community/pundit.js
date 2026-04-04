@@ -8,14 +8,15 @@
   "author": "Pundit.js Team",
   "contributors": ["John Otander", "Chris Alley"],
   "type": "module",
-  "types": "dist/index.d.ts",
+  "types": "./dist/pundit.d.ts",
+  "module": "./dist/pundit.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/pundit-community/pundit.js"
   },
   "exports": ["./dist/pundit.js"],
   "source": "src/index.ts",
-  "files": ["dist/pundit.js"],
+  "files": ["dist/*"],
   "engines": {
     "node": ">=24.14"
   },
@@ -45,14 +46,13 @@
       "pre-commit": "pnpm lint"
     }
   },
-  "module": "dist/pundit-new.esm.js",
   "size-limit": [
     {
-      "path": "dist/pundit.mjs",
+      "path": "dist/pundit.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/pundit.umd.js",
+      "path": "dist/pundit.umd.cjs",
       "limit": "10 KB"
     }
   ],
@@ -79,7 +79,7 @@
     "remark-preset-lint-markdown-style-guide": "^6.0.1",
     "size-limit": "^12.0.1",
     "typedoc": "^0.28.18",
-    "typescript": "^5.9.2",
+    "typescript": "^6.0.2",
     "unified-prettier": "^2.0.1",
     "unplugin-dts": "1.0.0-beta.6",
     "vite": "^8.0.3",

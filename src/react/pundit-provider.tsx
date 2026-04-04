@@ -1,4 +1,8 @@
-import React, { PropsWithChildren, ReactElement, useMemo } from 'react'
+import React, {
+  type PropsWithChildren,
+  type ReactElement,
+  useMemo
+} from 'react'
 import Policy from '../policy'
 
 const PunditContext = React.createContext({ policy: new Policy(null, null) })
