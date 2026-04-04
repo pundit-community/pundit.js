@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { createRoot } from 'react-dom/client'
 import BasicExample from './basic-example'
+import ExtendedPolicyExample from './extended-policy-example'
 import PunditProviderExample from './pundit-provider-example'
 import WhenExample from './when-example'
-import ExtendedPolicyExample from './extended-policy-example'
 
 function App(): React.ReactElement {
   return (

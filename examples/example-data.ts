@@ -1,4 +1,4 @@
-import { AuthorisableUser, AuthorisablePost } from './types'
+import { AuthorisablePost, AuthorisableUser } from './types'
 
 export const author: AuthorisableUser = { id: 1, isAdmin: false }
 export const admin: AuthorisableUser = { id: 2, isAdmin: true }

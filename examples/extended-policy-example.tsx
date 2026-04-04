@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Policy, PunditProvider, When } from '../src/index'
-import { AuthorisableUser, AuthorisablePost } from './types'
-import { author, admin, post } from './example-data'
+import { admin, author, post } from './example-data'
+import { AuthorisablePost, AuthorisableUser } from './types'
 
 class PostPolicy extends Policy {
   user: AuthorisableUser

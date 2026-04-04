@@ -2,32 +2,20 @@
   "name": "pundit",
   "version": "0.3.1",
   "description": "Minimal and tiny authorisation library that uses a plain old JavaScript object (POJO)",
-  "keywords": [
-    "authorisation",
-    "authorization",
-    "pundit",
-    "react"
-  ],
+  "keywords": ["authorisation", "authorization", "pundit", "react"],
   "homepage": "https://pundit-community.github.io/pundit.js/",
   "license": "MIT",
   "author": "Pundit.js Team",
-  "contributors": [
-    "John Otander",
-    "Chris Alley"
-  ],
+  "contributors": ["John Otander", "Chris Alley"],
   "type": "module",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/pundit-community/pundit.js"
   },
-  "exports": [
-    "./dist/pundit.js"
-  ],
+  "exports": ["./dist/pundit.js"],
   "source": "src/index.ts",
-  "files": [
-    "dist/pundit.js"
-  ],
+  "files": ["dist/pundit.js"],
   "engines": {
     "node": ">=24.14"
   },
@@ -37,12 +25,14 @@
     "coverage": "vitest run --coverage",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "lint": "pnpx eslint src/** test/**",
-    "lint:fix": "pnpx eslint src/** test/** --fix",
+    "format": "pnpx @biomejs/biome format",
+    "format:write": "pnpx @biomejs/biome format --write",
+    "lint": "pnpx @biomejs/biome lint",
+    "lint:write": "pnpx @biomejs/biome lint --write",
+    "check": "pnpx @biomejs/biome check",
+    "check:write": "pnpx @biomejs/biome check --write",
     "remark": "remark .",
     "remark:fix": "remark . --output",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
     "types": "tsc",
     "typedoc": "pnpx typedoc",
     "size": "size-limit",
@@ -67,10 +57,10 @@
     }
   ],
   "devDependencies": {
+    "@biomejs/biome": "2.4.10",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@commitlint/types": "^19.8.1",
-    "@eslint/js": "^9.39.4",
     "@microsoft/api-extractor": "^7.58.1",
     "@size-limit/preset-small-lib": "^12.0.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -80,13 +70,9 @@
     "@vitejs/plugin-react": "^6.0.1",
     "@vitest/coverage-v8": "^4.1.2",
     "@vitest/ui": "^4.1.2",
-    "eslint": "^9.39.4",
-    "eslint-config-prettier": "^9.1.2",
-    "eslint-plugin-react": "^7.37.5",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "jsdom": "^29.0.1",
-    "prettier": "3.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "remark-cli": "^12.0.1",
@@ -94,7 +80,6 @@
     "size-limit": "^12.0.1",
     "typedoc": "^0.28.18",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.58.0",
     "unified-prettier": "^2.0.1",
     "unplugin-dts": "1.0.0-beta.6",
     "vite": "^8.0.3",
