@@ -15,34 +15,29 @@
     "John Otander",
     "Chris Alley"
   ],
-  "type": "module",
-  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/pundit-community/pundit.js"
   },
-  "exports": [
-    "./dist/pundit.js"
-  ],
   "source": "src/index.ts",
   "files": [
     "dist/pundit.js"
   ],
-  "engines": {
-    "node": ">=24.14"
-  },
-  "packageManager": "pnpm@10.33.0+sha256.bfcc1bcbad279b13a516c446a75b3c58b6904b45d57a1951411015e50b751a80",
+  "type": "module",
+  "module": "dist/pundit-new.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": [
+    "./dist/pundit.js"
+  ],
   "scripts": {
     "build": "tsc && vite build",
     "coverage": "vitest run --coverage",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "lint": "pnpx eslint src/** test/**",
-    "lint:fix": "pnpx eslint src/** test/** --fix",
-    "remark": "remark .",
-    "remark:fix": "remark . --output",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
+    "lint": "pnpx oxlint src/** test/**",
+    "lint:fix": "pnpx oxlint src/** test/** --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "types": "tsc",
     "typedoc": "pnpx typedoc",
     "size": "size-limit",
@@ -50,12 +45,38 @@
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/types": "^19.8.1",
+    "@microsoft/api-extractor": "^7.58.1",
+    "@size-limit/preset-small-lib": "^12.0.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/coverage-v8": "^4.1.2",
+    "@vitest/ui": "^4.1.2",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "jsdom": "^29.0.1",
+    "oxfmt": "^0.44.0",
+    "oxlint": "^1.59.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "size-limit": "^12.0.1",
+    "typedoc": "^0.28.18",
+    "typescript": "^5.9.2",
+    "unplugin-dts": "1.0.0-beta.6",
+    "vite": "^8.0.8",
+    "vitest": "^4.1.2"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "pnpm lint"
     }
   },
-  "module": "dist/pundit-new.esm.js",
   "size-limit": [
     {
       "path": "dist/pundit.mjs",
@@ -66,40 +87,10 @@
       "limit": "10 KB"
     }
   ],
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@commitlint/types": "^19.8.1",
-    "@eslint/js": "^9.39.4",
-    "@microsoft/api-extractor": "^7.58.1",
-    "@size-limit/preset-small-lib": "^12.0.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "@vitest/coverage-v8": "^4.1.2",
-    "@vitest/ui": "^4.1.2",
-    "eslint": "^9.39.4",
-    "eslint-config-prettier": "^9.1.2",
-    "eslint-plugin-react": "^7.37.5",
-    "globals": "^16.5.0",
-    "husky": "^9.1.7",
-    "jsdom": "^29.0.1",
-    "prettier": "3.8.1",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "remark-cli": "^12.0.1",
-    "remark-preset-lint-markdown-style-guide": "^6.0.1",
-    "size-limit": "^12.0.1",
-    "typedoc": "^0.28.18",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.58.0",
-    "unified-prettier": "^2.0.1",
-    "unplugin-dts": "1.0.0-beta.6",
-    "vite": "^8.0.8",
-    "vitest": "^4.1.2"
+  "engines": {
+    "node": ">=24.14"
   },
+  "packageManager": "pnpm@10.33.0+sha256.bfcc1bcbad279b13a516c446a75b3c58b6904b45d57a1951411015e50b751a80",
   "pnpm": {
     "overrides": {
       "unplugin-dts>rollup": ">=4.59.0"
