@@ -46,3 +46,6 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Build Examples
+        run: cd examples && pnpm build

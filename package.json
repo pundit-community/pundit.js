@@ -21,11 +21,11 @@
   },
   "source": "src/index.ts",
   "files": [
-    "dist/pundit.js"
+    "dist/*"
   ],
   "type": "module",
-  "module": "dist/pundit-new.esm.js",
-  "types": "dist/index.d.ts",
+  "module": "./dist/pundit.js",
+  "types": "./dist/pundit.d.ts",
   "exports": [
     "./dist/pundit.js"
   ],
@@ -67,7 +67,7 @@
     "react-dom": "^19.2.4",
     "size-limit": "^12.0.1",
     "typedoc": "^0.28.18",
-    "typescript": "^5.9.2",
+    "typescript": "^6.0.2",
     "unplugin-dts": "1.0.0-beta.6",
     "vite": "^8.0.8",
     "vitest": "^4.1.2"
@@ -79,11 +79,11 @@
   },
   "size-limit": [
     {
-      "path": "dist/pundit.mjs",
+      "path": "dist/pundit.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/pundit.umd.js",
+      "path": "dist/pundit.umd.cjs",
       "limit": "10 KB"
     }
   ],
