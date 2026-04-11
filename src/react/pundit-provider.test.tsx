@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { expect } from 'vitest'
-import Policy from '../../src/policy'
-import { PunditProvider } from '../../src/react/pundit-provider'
-import When from '../../src/react/when'
+import Policy from '../policy'
+import { PunditProvider } from './pundit-provider'
+import When from './when'
 
 describe('<PunditProvider />', () => {
   describe('policy parameter', () => {
