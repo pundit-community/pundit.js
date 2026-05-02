@@ -1,18 +1,15 @@
 {
   "compilerOptions": {
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "rootDir": "./src",
     "outDir": "./dist",
-    "baseUrl": "./src",
     "jsx": "react",
     "esModuleInterop": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"]
+    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"],
+    "strict": false
   },
-  "include": [
-    "test-setup.js",
-    "vite.config.js",
-    "src/**/*",
-    "test/**/*",
-    "examples/**/*"
-  ]
+  "include": ["test-setup.js", "vite.config.js", "src/**/*"]
 }

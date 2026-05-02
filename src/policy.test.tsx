@@ -1,4 +1,4 @@
-import Policy from '../src/policy'
+import Policy from './policy'
 
 describe('can method', () => {
   const policy = new Policy(null, null)
@@ -80,9 +80,8 @@ describe('setup method', () => {
   type AuthorisableRecord = { draft: boolean }
 
   class PostPolicy extends Policy {
-    user: AuthorisableUser
-
-    record: AuthorisableRecord
+    declare user: AuthorisableUser
+    declare record: AuthorisableRecord
 
     constructor(
       user: AuthorisableUser | undefined,
