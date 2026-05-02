@@ -7,18 +7,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ['22.12']
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node: ['24.14']
+        os: [ubuntu-latest, macOS-latest]
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install pnpm package manager
         uses: pnpm/action-setup@v4 # Extracts pnpm version from package.json packageManager field
 
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           cache: 'pnpm'
 
@@ -31,11 +31,8 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: Remark
-        run: pnpm remark
-
-      - name: Prettier
-        run: pnpm prettier
+      - name: Format
+        run: pnpm fmt:check
 
       - name: Types
         run: pnpm types
@@ -49,3 +46,6 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Build Examples
+        run: cd examples && pnpm build
