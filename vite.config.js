@@ -7,7 +7,7 @@ import dts from 'unplugin-dts/vite'
 export default defineConfig({
   plugins: [
     react(),
-    dts({ tsconfigPath: './tsconfig.build.json', bundleTypes: true })
+    dts({ tsconfigPath: './tsconfig.json', bundleTypes: true })
   ],
   build: {
     lib: {
