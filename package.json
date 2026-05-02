@@ -46,7 +46,7 @@
     "commitlint": "commitlint --edit"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
+    "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^19.8.1",
     "@commitlint/types": "^19.8.1",
     "@microsoft/api-extractor": "^7.58.1",
@@ -58,7 +58,7 @@
     "@vitejs/plugin-react": "^6.0.1",
     "@vitest/coverage-v8": "^4.1.2",
     "@vitest/ui": "^4.1.2",
-    "globals": "^16.5.0",
+    "globals": "^17.6.0",
     "husky": "^9.1.7",
     "jsdom": "^29.0.1",
     "oxfmt": "^0.44.0",
