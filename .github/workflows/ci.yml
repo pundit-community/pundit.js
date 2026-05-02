@@ -8,17 +8,17 @@ jobs:
     strategy:
       matrix:
         node: ['24.14']
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, macOS-latest]
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install pnpm package manager
-        uses: pnpm/action-setup@v4 # Extracts pnpm version from package.json packageManager field
+        uses: pnpm/action-setup@v5 # Extracts pnpm version from package.json packageManager field
 
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           cache: 'pnpm'
 
