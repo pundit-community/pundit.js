@@ -15,7 +15,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'pundit'
     },
-    rollupOptions: {
+    rolldownOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
       external: ['react'],
