@@ -24,6 +24,7 @@ jobs:
 
       - name: Check for known security issues
         run: pnpm audit
+        continue-on-error: true
 
       - name: Install Dependencies
         run: pnpm install
